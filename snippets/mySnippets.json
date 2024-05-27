@@ -1,0 +1,52 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placemholders with the same ids are connected.
+	// Example:
+	"Map JSX": {
+		"scope": "javascript,typescript,jsx",
+		"prefix": "mapjsx",
+		"body": [
+			"{${1:array}.map((${2:item}, ${3:index}) => (",
+			"\t<li key={${3:index}}>{${2:item}}</li>",
+			"))}",
+			"$0"
+		],
+		"description": "Map array elements in JSX"
+	},
+	"UseState Hook": {
+		"scope": "javascript,typescript,jsx",
+		"prefix": "usestate",
+		"body": [
+			"const [${1:value}, set${1/(.*)/${1:/capitalize}/}] = useState(${2:[]});",
+			"$0"
+		],
+		"description": "Initialize state variable using useState hook"
+	},
+	"React useEffect Hook with Fetch": {
+		"scope": "javascript,typescript,jsx",
+		"prefix": "useeffectfetch",
+		"body": [
+			"useEffect(() => {",
+			"\tconst fetch${1:Data} = async () => {",
+			"\t\tconst apiUrl = '${2:/api/endpoint}';",
+			"\t\ttry {",
+			"\t\t\tconst res = await fetch(apiUrl);",
+			"\t\t\tconst data = await res.json();",
+			"\t\t\t${3:set${1/(.*)/${1:/capitalize}/}}(data);",
+			"\t\t} catch (error) {",
+			"\t\t\tconsole.log('Error fetching data', error);",
+			"\t\t} finally {",
+			"\t\t\t${4:// }setLoading(false);",
+			"\t\t}",
+			"\t};",
+			"\tfetch${1:Data}();",
+			"}, []);",
+			"$0"
+		],
+		"description": "React useEffect Hook with fetch, editable apiUrl, and toggleable setLoading"
+	}
+}
